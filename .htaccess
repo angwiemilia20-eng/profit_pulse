@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Redirect to public assets directly
+RewriteRule ^public/(.*)$ public/$1 [L]
+
+# Route everything else through index.php
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
